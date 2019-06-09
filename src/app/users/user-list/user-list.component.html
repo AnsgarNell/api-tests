@@ -1,0 +1,9 @@
+<h4 class="ui horizontal divider header">
+  <i class="users icon"></i>
+  Users
+</h4>
+<div *ngIf="loading">loading...</div>
+<div *ngFor="let user of users">
+  <app-user-list-detail [user]="user">
+  </app-user-list-detail>
+</div>
