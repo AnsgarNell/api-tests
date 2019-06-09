@@ -1,4 +1,9 @@
-export class AddressModel {
+/**
+ * Address is a data-structure that holds an individual
+ * address
+ */
+
+export class Address {
   street: string;
   suite: string;
   city: string;
