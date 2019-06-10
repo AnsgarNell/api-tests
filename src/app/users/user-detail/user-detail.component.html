@@ -5,6 +5,9 @@
 <div class="ui active inverted dimmer" *ngIf="loading">
   <div class="ui text loader">Loading</div>
 </div>
+<div class="ui segment">
+  <div class="ui two column very relaxed grid">
+    <div class="column">
 <table class="ui definition table">
   <tbody>
   <tr>
@@ -41,6 +44,18 @@
   </tr>
   </tbody>
 </table>
+    </div>
+    <div class="column">
+  <agm-map [latitude]="user?.address.geo.lat" [longitude]="user?.address.geo.lng">
+    <agm-marker [latitude]="user?.address.geo.lat" [longitude]="user?.address.geo.lng">
+      <agm-info-window>{{user?.address.city}}</agm-info-window>
+    </agm-marker>
+  </agm-map>
+    </div>
+  </div>
+
+</div>
+
 <h4 class="ui horizontal divider header"></h4>
 <h4 class="ui horizontal divider handwritten">
   {{user?.company.catchPhrase}}

@@ -2,3 +2,7 @@
   font-family: 'Cookie', Helvetica, sans-serif;
   text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
 }
+
+agm-map {
+  height: 340px;
+}

@@ -11,6 +11,8 @@ import {ActivatedRoute} from '@angular/router';
 export class UserDetailComponent implements OnInit {
   user: User;
   loading: boolean;
+  // google maps zoom level
+  zoom: 8;
 
   constructor(
     private route: ActivatedRoute,

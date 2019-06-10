@@ -14,6 +14,8 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { AlbumsCardsComponent } from './albums/albums-cards/albums-cards.component';
 import { AlbumDetailComponent } from './albums/album-detail/album-detail.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,10 @@ import { AlbumDetailComponent } from './albums/album-detail/album-detail.compone
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBu3OvMtGhkIl6P324NQI-Wut3lLtB6QcE'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
