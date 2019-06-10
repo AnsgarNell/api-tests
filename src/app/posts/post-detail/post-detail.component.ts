@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ApiService} from '../../shared/services/api.service';
-import {Post} from '../posts-model';
+import {Post} from '../post-model';
 import {User} from '../../users/user-model';
 import {UserComment} from '../../user-comments/user-comments-model';
 
@@ -14,12 +14,14 @@ export class PostDetailComponent implements OnInit {
   post: Post;
   author: User;
   comments: UserComment[];
+  loading: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private apiServicesService: ApiService) { }
 
   ngOnInit() {
+    this.loading = true;
     this.getPost();
   }
 
@@ -40,6 +42,9 @@ export class PostDetailComponent implements OnInit {
 
   getComments(): void {
     this.apiServicesService.getCommentsByPostId(this.post.id)
-      .subscribe(comments => this.comments = comments);
+      .subscribe(comments => {
+        this.comments = comments;
+        this.loading = false;
+      });
   }
 }

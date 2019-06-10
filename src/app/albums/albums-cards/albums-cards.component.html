@@ -1,0 +1,22 @@
+<h4 class="ui horizontal divider header">
+  <i class="camera icon"></i>
+  Albums
+</h4>
+<div class="ui active inverted dimmer" *ngIf="loading">
+  <div class="ui text loader">Loading</div>
+</div>
+<div class="ui container">
+  <div class="ui cards">
+    <div class="ui centered card" *ngFor="let album of albums">
+      <div class="content">
+        <div class="header">{{album.id}}</div>
+        <div class="description">
+          {{album.title}}
+        </div>
+      </div>
+      <a class="ui bottom attached button" routerLink="/albums/{{album.id}}">
+        View
+      </a>
+    </div>
+  </div>
+</div>

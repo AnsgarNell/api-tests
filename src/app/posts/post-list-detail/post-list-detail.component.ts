@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, OnInit} from '@angular/core';
-import {Post} from '../posts-model';
+import {Post} from '../post-model';
 import {User} from '../../users/user-model';
 import {ApiService} from '../../shared/services/api.service';
 import {UserComment} from '../../user-comments/user-comments-model';

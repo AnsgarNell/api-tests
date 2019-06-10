@@ -2,6 +2,9 @@
   <i class="user icon"></i>
   {{user?.username}}
 </h4>
+<div class="ui active inverted dimmer" *ngIf="loading">
+  <div class="ui text loader">Loading</div>
+</div>
 <table class="ui definition table">
   <tbody>
   <tr>

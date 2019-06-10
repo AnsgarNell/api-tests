@@ -4,10 +4,10 @@ import {ApiService} from '../../shared/services/api.service';
 
 @Component({
   selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  templateUrl: './users-list.component.html',
+  styleUrls: ['./users-list.component.css']
 })
-export class UserListComponent implements OnInit {
+export class UsersListComponent implements OnInit {
   users: User[];
   loading: boolean;
 

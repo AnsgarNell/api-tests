@@ -10,18 +10,23 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class UserDetailComponent implements OnInit {
   user: User;
+  loading: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private apiServicesService: ApiService) { }
 
   ngOnInit() {
+    this.loading = true;
     this.getUser();
   }
 
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.apiServicesService.getUserById(id)
-      .subscribe(user => this.user = user);
+      .subscribe(user => {
+        this.user = user;
+        this.loading = false;
+      });
   }
 }

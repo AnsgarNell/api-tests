@@ -2,6 +2,9 @@
   <i class="comment outline icon"></i>
   {{post?.title}}
 </h4>
+<div class="ui active inverted dimmer" *ngIf="loading">
+  <div class="ui text loader">Loading</div>
+</div>
 <div class="ui segment">
   <h3 class="ui left floated header"><a routerLink="/users/{{author?.id}}">{{author?.username}}</a></h3>
   <div class="ui clearing divider"></div>

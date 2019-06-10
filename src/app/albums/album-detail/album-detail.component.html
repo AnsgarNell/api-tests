@@ -1,0 +1,27 @@
+<h4 class="ui horizontal divider header">
+  <i class="camera icon"></i>
+  "{{album.title}}"
+</h4>
+<h4 class="ui hidden horizontal divider header">
+  Author: <a routerLink="/users/{{author?.id}}">{{author?.username}}</a>
+</h4>
+<div class="ui active inverted dimmer" *ngIf="loading">
+  <div class="ui text loader">Loading</div>
+</div>
+<div class="ui hidden divider"></div>
+<div class="ui container">
+  <div class="ui cards">
+    <div class="ui centered card" *ngFor="let photo of photos">
+      <div class="content">
+        <img class="right floated mini ui image" src="{{photo.thumbnailUrl}}">
+        <div class="header">{{photo.id}}</div>
+        <div class="description">
+          {{photo.title}}
+        </div>
+      </div>
+      <a class="ui bottom attached button" href="{{photo.url}}">
+        View
+      </a>
+    </div>
+  </div>
+</div>
