@@ -1,11 +1,9 @@
-<tr>
-  <td>
-    <a routerLink="/users/{{user.id}}">{{user.name}}</a>
-  </td>
-  <td>
-    {{user.company.name}}
-  </td>
-  <td>
-    {{user.email}}
-  </td>
-</tr>
+<td data-label="Name">
+  <a routerLink="/users/{{user.id}}">{{user.name}}</a>
+</td>
+<td data-label="Company">
+  {{user.company.name}}
+</td>
+<td data-label="Email">
+  {{user.email}}
+</td>

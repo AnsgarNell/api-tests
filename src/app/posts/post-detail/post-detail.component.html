@@ -3,7 +3,7 @@
   {{post?.title}}
 </h4>
 <div class="ui segment">
-  <h3 class="ui left floated header">{{author?.name}}</h3>
+  <h3 class="ui left floated header"><a routerLink="/users/{{author?.id}}">{{author?.username}}</a></h3>
   <div class="ui clearing divider"></div>
   <p>
     {{post?.body}}
