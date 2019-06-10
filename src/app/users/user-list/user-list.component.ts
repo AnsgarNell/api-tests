@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../user-model';
-import {ApiServicesService} from '../../shared/services/api-services.service';
+import {ApiService} from '../../shared/services/api.service';
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +11,7 @@ export class UserListComponent implements OnInit {
   users: User[];
   loading: boolean;
 
-  constructor(apiServicesService: ApiServicesService) {
+  constructor(apiServicesService: ApiService) {
     this.loading = true;
     apiServicesService.getUsers()
       .subscribe(users => {

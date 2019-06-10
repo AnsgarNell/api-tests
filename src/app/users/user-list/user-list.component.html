@@ -2,8 +2,20 @@
   <i class="users icon"></i>
   Users
 </h4>
-<div *ngIf="loading">loading...</div>
-<div *ngFor="let user of users">
-  <app-user-list-detail [user]="user">
-  </app-user-list-detail>
+<div class="ui active inverted dimmer" *ngIf="loading">
+  <div class="ui text loader">Loading</div>
 </div>
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Company</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <app-user-list-detail [user]="user">
+    </app-user-list-detail>
+  </tbody>
+</table>
+

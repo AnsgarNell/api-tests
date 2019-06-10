@@ -10,7 +10,7 @@ const baseUrl = `https://jsonplaceholder.typicode.com/`;
 @Injectable({
   providedIn: 'root'
 })
-export class ApiServicesService {
+export class ApiService {
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +24,10 @@ export class ApiServicesService {
 
   getUserById(id: number): Observable<User> {
     return this.http.get<User>(baseUrl + 'users/' + id);
+  }
+
+  getPostById(id: number): Observable<Post> {
+    return this.http.get<Post>(baseUrl + 'posts/' + id);
   }
 
   getCommentsByPostId(id: number): Observable<UserComment[]>  {

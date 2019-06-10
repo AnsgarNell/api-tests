@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Post} from '../posts-model';
-import {ApiServicesService} from '../../shared/services/api-services.service';
+import {ApiService} from '../../shared/services/api.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -11,7 +11,7 @@ export class PostsListComponent implements OnInit {
   posts: Post[];
   loading: boolean;
 
-  constructor(apiServicesService: ApiServicesService) {
+  constructor(apiServicesService: ApiService) {
     this.loading = true;
     apiServicesService.getPosts()
       .subscribe(posts => {

@@ -1,0 +1,16 @@
+<h4 class="ui horizontal divider header">
+  <i class="comment outline icon"></i>
+  {{post?.title}}
+</h4>
+<div class="ui segment">
+  <h3 class="ui left floated header">{{author?.name}}</h3>
+  <div class="ui clearing divider"></div>
+  <p>
+    {{post?.body}}
+  </p>
+</div>
+<div class="ui segment">
+  <div *ngFor="let comment of comments">
+    <app-user-comments [comment]="comment"></app-user-comments>
+  </div>
+</div>

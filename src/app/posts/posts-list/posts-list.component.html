@@ -2,7 +2,9 @@
   <i class="comment outline icon"></i>
   Posts
 </h4>
-<div *ngIf="loading">loading...</div>
+<div class="ui active inverted dimmer" *ngIf="loading">
+  <div class="ui text loader">Loading</div>
+</div>
 <table class="ui celled table">
   <thead>
   <tr>

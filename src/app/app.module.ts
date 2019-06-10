@@ -8,6 +8,9 @@ import { UserListDetailComponent } from './users/user-list-detail/user-list-deta
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { PostListDetailComponent } from './posts/post-list-detail/post-list-detail.component';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PostDetailComponent } from './posts/post-detail/post-detail.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { UserCommentsComponent } from './user-comments/user-comments.component';
     UserListDetailComponent,
     PostsListComponent,
     PostListDetailComponent,
-    UserCommentsComponent
+    UserCommentsComponent,
+    PostDetailComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

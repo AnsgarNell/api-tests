@@ -1,0 +1,46 @@
+<h4 class="ui horizontal divider header">
+  <i class="user icon"></i>
+  {{user?.username}}
+</h4>
+<table class="ui definition table">
+  <tbody>
+  <tr>
+    <td class="two wide column">Id</td>
+    <td>{{user?.id}}</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>{{user?.name}}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{user?.email}}</td>
+  </tr>
+  <tr>
+    <td>Stree</td>
+    <td>{{user?.address.street}}</td>
+  </tr>
+  <tr>
+    <td>Suite</td>
+    <td>{{user?.address.suite}}</td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td>{{user?.address.city}}</td>
+  </tr>
+  <tr>
+    <td>ZIP Code</td>
+    <td>{{user?.address.zipcode}}</td>
+  </tr>
+  <tr>
+    <td>Company</td>
+    <td>{{user?.company.name}}</td>
+  </tr>
+  </tbody>
+</table>
+<h4 class="ui horizontal divider header"></h4>
+<h4 class="ui horizontal divider handwritten">
+  {{user?.company.catchPhrase}}
+</h4>
+<!-- Special link because we want a special handwritten font -->
+<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
