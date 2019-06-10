@@ -1,5 +1,13 @@
 # ApiTests
 
+Test project to learn Angular CLI development using the [JSONPlaceholder](https://jsonplaceholder.typicode.com/) fake API.
+The application allows navigating through posts (and their comments), users, albums and the corresponding photos.
+
+The styling has been done with [Semantic UI](https://semantic-ui.com/).
+
+A running example can be found under [https://api-tests.ansgarnell.now.sh](https://api-tests.ansgarnell.now.sh)
+uploaded thanks to [Now CLI](https://github.com/zeit/now-cli).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
 ## Development server
