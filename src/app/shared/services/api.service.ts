@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {User} from '../../users/user-model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Post} from '../../posts/post-model';
 import {UserComment} from '../../user-comments/user-comments-model';
 import {Album} from '../../albums/album-model';
@@ -23,6 +23,10 @@ export class ApiService {
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(baseUrl + 'posts');
   }
+
+    getPostsByStartAndLimit(start: number, limit: number): Observable<HttpResponse<Post[]>> {
+        return this.http.get<Post[]>(baseUrl + `posts?_start=${start - 1}&_limit=${limit}`, { observe: 'response'});
+    }
 
   getAlbums(): Observable<Album[]> {
     return this.http.get<Album[]>(baseUrl + 'albums');

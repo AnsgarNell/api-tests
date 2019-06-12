@@ -15,6 +15,8 @@ import { AlbumsCardsComponent } from './albums/albums-cards/albums-cards.compone
 import { AlbumDetailComponent } from './albums/album-detail/album-detail.component';
 
 import { AgmCoreModule } from '@agm/core';
+import {SuiModule} from 'ng2-semantic-ui';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { AgmCoreModule } from '@agm/core';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    SuiModule,
     AgmCoreModule.forRoot({
       apiKey: 'XXXXXXXXXXX'
     })
