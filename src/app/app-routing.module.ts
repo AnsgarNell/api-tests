@@ -8,12 +8,12 @@ import {AlbumsCardsComponent} from './albums/albums-cards/albums-cards.component
 import {AlbumDetailComponent} from './albums/album-detail/album-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'posts/start/1/limit/1', pathMatch: 'full' },
+  { path: '', redirectTo: 'posts/start/1/limit/10', pathMatch: 'full' },
   { path: 'posts/start/:start/limit/:limit', component: PostsListComponent },
   { path: 'posts/:id', component: PostDetailComponent },
   { path: 'users', component: UsersListComponent },
   { path: 'users/:id', component: UserDetailComponent },
-  { path: 'albums', component: AlbumsCardsComponent },
+  { path: 'albums/start/:start/limit/:limit', component: AlbumsCardsComponent },
   { path: 'albums/:id', component: AlbumDetailComponent }
 ];
 

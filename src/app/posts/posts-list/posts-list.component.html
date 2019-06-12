@@ -25,14 +25,13 @@
   </tbody>
 </table>
 <div class="ui segment">
-  <sui-pagination class="ui centered"
-                  [collectionSize]="totalPosts"
-                  [maxSize] = "15"
-                  [pageSize]="limit"
-                  [hasNavigationLinks]="true"
-                  [hasBoundaryLinks]="false"
-                  [(page)]="start"
-                  (click)="testClick()">
-  </sui-pagination>
+<sui-pagination
+                [collectionSize]="totalPosts"
+                [maxSize] = "10"
+                [pageSize]="limit"
+                [hasNavigationLinks]="true"
+                [hasBoundaryLinks]="false"
+                [(page)]="currentPage"
+                (click)="onPaginationClick()">
+</sui-pagination>
 </div>
-

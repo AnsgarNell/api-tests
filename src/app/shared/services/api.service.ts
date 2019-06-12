@@ -18,18 +18,14 @@ export class ApiService {
 
   getUsers(): Observable<User[]> {
    return this.http.get<User[]>(baseUrl + 'users');
- }
-
-  getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(baseUrl + 'posts');
   }
 
-    getPostsByStartAndLimit(start: number, limit: number): Observable<HttpResponse<Post[]>> {
-        return this.http.get<Post[]>(baseUrl + `posts?_start=${start - 1}&_limit=${limit}`, { observe: 'response'});
-    }
+  getPostsByStartAndLimit(start: number, limit: number): Observable<HttpResponse<Post[]>> {
+    return this.http.get<Post[]>(baseUrl + `posts?_start=${start}&_limit=${limit}`, { observe: 'response'});
+  }
 
-  getAlbums(): Observable<Album[]> {
-    return this.http.get<Album[]>(baseUrl + 'albums');
+  getAlbumsByStartAndLimit(start: number, limit: number): Observable<HttpResponse<Album[]>> {
+    return this.http.get<Album[]>(baseUrl + `albums?_start=${start}&_limit=${limit}`, { observe: 'response'});
   }
 
   getUserById(id: number): Observable<User> {

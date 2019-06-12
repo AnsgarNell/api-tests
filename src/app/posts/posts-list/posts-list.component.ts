@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class PostsListComponent implements OnInit {
   posts: Post[];
   loading: boolean;
-  start: number;
+  currentPage: number;
   limit: number;
   totalPosts: number;
 
@@ -19,7 +19,7 @@ export class PostsListComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private apiServicesService: ApiService) {
-      this.start = 1;
+      this.currentPage = 1;
       this.limit = 10;
       this.totalPosts = 100;
       route.params.subscribe(val => {
@@ -28,14 +28,14 @@ export class PostsListComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.loading = true;
       this.getPosts();
   }
 
     getPosts(): void {
-        this.start = +this.route.snapshot.paramMap.get('start');
+        this.loading = true;
+        this.currentPage = +this.route.snapshot.paramMap.get('start');
         this.limit = +this.route.snapshot.paramMap.get('limit');
-        this.apiServicesService.getPostsByStartAndLimit(this.start, this.limit)
+        this.apiServicesService.getPostsByStartAndLimit((this.currentPage - 1) * this.limit, this.limit)
             .subscribe(response => {
                 this.totalPosts = +response.headers.get('X-Total-Count');
                 this.posts = response.body;
@@ -43,7 +43,7 @@ export class PostsListComponent implements OnInit {
             });
     }
 
-    testClick(): void {
-      this.router.navigateByUrl(`/posts/start/${this.start}/limit/${this.limit}`);
+    onPaginationClick(): void {
+      this.router.navigateByUrl(`/posts/start/${this.currentPage}/limit/${this.limit}`);
     }
 }
