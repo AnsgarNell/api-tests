@@ -14,19 +14,7 @@
   </tr>
   </thead>
   <tbody>
-    <!-- OK, this is not the best practice, as we already developed a users-list-detail
-    component to show this information. But somehow Angular breaks the styling within
-    the table and the cells formatting sucks, so do it this way for now -->
-    <tr *ngFor="let user of users">
-      <td data-label="Name">
-        <a routerLink="/users/{{user.id}}">{{user.name}}</a>
-      </td>
-      <td data-label="Company">
-        {{user.company.name}}
-      </td>
-      <td data-label="Email">
-        {{user.email}}
-      </td>
+    <tr *ngFor="let user of users" app-user-list-detail [user]="user">
     </tr>
   </tbody>
 </table>

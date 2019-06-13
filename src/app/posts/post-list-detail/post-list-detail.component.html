@@ -1,0 +1,11 @@
+<td>
+  <h4 class="ui header" [attr.data-tooltip]=formatBody()>
+    <a routerLink="/posts/{{post.id}}">{{post.title}}</a>
+      <div class="sub header">
+        <a routerLink="/users/{{author?.id}}">{{author?.name}}</a>
+      </div>
+  </h4>
+</td>
+<td>
+  {{comments?.length}}
+</td>

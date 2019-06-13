@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UsersListComponent } from './users/users-list/users-list.component';
+import { UserListDetailComponent } from './users/user-list-detail/user-list-detail.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
+import { PostListDetailComponent } from './posts/post-list-detail/post-list-detail.component';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PostDetailComponent } from './posts/post-detail/post-detail.component';
@@ -20,7 +22,9 @@ import {SuiModule} from 'ng2-semantic-ui';
   declarations: [
     AppComponent,
     UsersListComponent,
+    UserListDetailComponent,
     PostsListComponent,
+    PostListDetailComponent,
     UserCommentsComponent,
     PostDetailComponent,
     UserDetailComponent,

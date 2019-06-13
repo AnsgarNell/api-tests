@@ -8,19 +8,12 @@
 <table class="ui celled table">
   <thead>
   <tr>
-    <th>Title</th>
+    <th>Author/Title</th>
+    <th>Comments</th>
   </tr>
   </thead>
   <tbody>
-    <!-- OK, this is not the best practice, as we already developed a post-list-detail
-    component to show this information. But somehow Angular breaks the styling within
-    the table and the cells formatting sucks, so do it this way for now -->
-    <tr *ngFor="let post of posts">
-      <td>
-        <h4 class="ui header" [attr.data-tooltip]=post.body>
-          <a routerLink="/posts/{{post.id}}">{{post.title}}</a>
-        </h4>
-      </td>
+    <tr *ngFor="let post of posts" app-post-list-detail [post]="post">
     </tr>
   </tbody>
 </table>
