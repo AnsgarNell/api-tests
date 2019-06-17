@@ -31,9 +31,7 @@ export class AlbumDetailComponent implements OnInit {
   getAlbum(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.apiServicesService.getAlbumById(id)
-        .pipe(
-            finalize(() => this.loading = false),
-        ).subscribe(
+        .subscribe(
           album => {
           this.album = album;
           this.getAuthor();
@@ -47,9 +45,7 @@ export class AlbumDetailComponent implements OnInit {
 
   getAuthor(): void {
     this.apiServicesService.getUserById(this.album.userId)
-        .pipe(
-            finalize(() => this.loading = false),
-        ).subscribe(
+        .subscribe(
             user => this.author = user,
         error => {
           this.messageService.add(`${error.name}: "${error.message}"`);
