@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Post} from '../post-model';
 import {ApiService} from '../../shared/services/api.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {MessageService} from '../../shared/services/message.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -18,7 +19,8 @@ export class PostsListComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private router: Router,
-      private apiServicesService: ApiService) {
+      private apiServicesService: ApiService,
+      private messageService: MessageService) {
       this.currentPage = 1;
       this.limit = 10;
       this.totalPosts = 100;
@@ -32,15 +34,18 @@ export class PostsListComponent implements OnInit {
   }
 
     getPosts(): void {
-        this.loading = true;
         this.currentPage = +this.route.snapshot.paramMap.get('start');
         this.limit = +this.route.snapshot.paramMap.get('limit');
         this.apiServicesService.getPostsByStartAndLimit((this.currentPage - 1) * this.limit, this.limit)
-            .subscribe(response => {
-                this.totalPosts = +response.headers.get('X-Total-Count');
-                this.posts = response.body;
-                this.loading = false;
-            });
+            .subscribe(
+                response => {
+                    this.totalPosts = +response.headers.get('X-Total-Count');
+                    this.posts = response.body;
+                },
+                error => {
+                    this.messageService.add(`${error.name}: "${error.message}"`);
+                }
+            );
     }
 
     onPaginationClick(): void {

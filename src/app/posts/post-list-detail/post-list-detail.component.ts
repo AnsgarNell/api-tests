@@ -3,6 +3,7 @@ import {Post} from '../post-model';
 import {User} from '../../users/user-model';
 import {ApiService} from '../../shared/services/api.service';
 import {UserComment} from '../../user-comments/user-comments-model';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: '[app-post-list-detail]',
@@ -18,16 +19,14 @@ export class PostListDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiServicesService.getUserById(this.post.userId)
-      .subscribe(user => {
-          this.author = user;
-        }
-      );
-    this.apiServicesService.getCommentsByPostId(this.post.id)
-      .subscribe(comments => {
-        this.comments = comments;
-        }
-      );
+    forkJoin(
+        this.apiServicesService.getUserById(this.post.userId),
+        this.apiServicesService.getCommentsByPostId(this.post.id)
+    )
+        .subscribe(([author, comments]) => {
+          this.author = author;
+          this.comments = comments;
+        });
   }
 
   formatBody(): string {

@@ -16,6 +16,7 @@ import { AlbumDetailComponent } from './albums/album-detail/album-detail.compone
 
 import { AgmCoreModule } from '@agm/core';
 import {SuiModule} from 'ng2-semantic-ui';
+import { MessagesComponent } from './shared/messages/messages.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {SuiModule} from 'ng2-semantic-ui';
     PostDetailComponent,
     UserDetailComponent,
     AlbumsCardsComponent,
-    AlbumDetailComponent
+    AlbumDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
