@@ -13,8 +13,6 @@ import {MessageService} from '../../shared/services/message.service';
 export class UserDetailComponent implements OnInit {
   user: User;
   loading: boolean;
-  // google maps zoom level
-  zoom: 8;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +31,7 @@ export class UserDetailComponent implements OnInit {
             finalize(() => this.loading = false),
         ).subscribe(
             user => {
-        this.user = user;
+          this.user = user;
         },
         error => {
           this.messageService.add(`${error.name}: "${error.message}"`);
