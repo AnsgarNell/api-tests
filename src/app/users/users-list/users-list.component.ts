@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../user-model';
 import {ApiService} from '../../shared/services/api.service';
+import {finalize} from 'rxjs/operators';
+import {MessageService} from '../../shared/services/message.service';
 
 @Component({
   selector: 'app-user-list',
@@ -11,12 +13,18 @@ export class UsersListComponent implements OnInit {
   users: User[];
   loading: boolean;
 
-  constructor(apiServicesService: ApiService) {
+  constructor(apiServicesService: ApiService,
+              private messageService: MessageService) {
     this.loading = true;
     apiServicesService.getUsers()
-      .subscribe(users => {
+        .pipe(
+            finalize(() => this.loading = false),
+        ).subscribe(
+            users => {
           this.users = users;
-          this.loading = false;
+        },
+        error => {
+            this.messageService.add(`${error.name}: "${error.message}"`);
         }
       );
   }

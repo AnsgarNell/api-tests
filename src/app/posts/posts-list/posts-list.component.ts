@@ -3,6 +3,7 @@ import {Post} from '../post-model';
 import {ApiService} from '../../shared/services/api.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MessageService} from '../../shared/services/message.service';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-posts-list',
@@ -34,10 +35,13 @@ export class PostsListComponent implements OnInit {
   }
 
     getPosts(): void {
+        this.loading = true;
         this.currentPage = +this.route.snapshot.paramMap.get('start');
         this.limit = +this.route.snapshot.paramMap.get('limit');
         this.apiServicesService.getPostsByStartAndLimit((this.currentPage - 1) * this.limit, this.limit)
-            .subscribe(
+            .pipe(
+                finalize(() => this.loading = false),
+            ).subscribe(
                 response => {
                     this.totalPosts = +response.headers.get('X-Total-Count');
                     this.posts = response.body;

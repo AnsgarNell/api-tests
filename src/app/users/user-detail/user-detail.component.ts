@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../user-model';
 import {ApiService} from '../../shared/services/api.service';
 import {ActivatedRoute} from '@angular/router';
+import {finalize} from 'rxjs/operators';
+import {MessageService} from '../../shared/services/message.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -16,7 +18,8 @@ export class UserDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private apiServicesService: ApiService) { }
+    private apiServicesService: ApiService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.loading = true;
@@ -26,9 +29,15 @@ export class UserDetailComponent implements OnInit {
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.apiServicesService.getUserById(id)
-      .subscribe(user => {
+        .pipe(
+            finalize(() => this.loading = false),
+        ).subscribe(
+            user => {
         this.user = user;
-        this.loading = false;
-      });
+        },
+        error => {
+          this.messageService.add(`${error.name}: "${error.message}"`);
+        }
+      );
   }
 }
