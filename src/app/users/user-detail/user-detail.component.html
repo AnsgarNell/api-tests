@@ -45,15 +45,14 @@
         </tbody>
       </table>
     </div>
-  <div class="column">
-    <agm-map *ngIf="!loading" [latitude]="+user?.address.geo.lat" [longitude]="+user?.address.geo.lng">
-      <agm-marker [latitude]="user?.address.geo.lat" [longitude]="user?.address.geo.lng">
-        <agm-info-window>{{user?.address.city}}</agm-info-window>
-      </agm-marker>
-    </agm-map>
+    <div class="column">
+      <agm-map *ngIf="!loading" [latitude]="+user?.address.geo.lat" [longitude]="+user?.address.geo.lng">
+        <agm-marker [latitude]="user?.address.geo.lat" [longitude]="user?.address.geo.lng">
+          <agm-info-window>{{user?.address.city}}</agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
   </div>
-</div>
-
 </div>
 
 <h4 class="ui horizontal divider header"></h4>
