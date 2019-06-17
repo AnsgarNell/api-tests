@@ -39,20 +39,23 @@ export class PostsListComponent implements OnInit {
         this.currentPage = +this.route.snapshot.paramMap.get('start');
         this.limit = +this.route.snapshot.paramMap.get('limit');
         this.apiServicesService.getPostsByStartAndLimit((this.currentPage - 1) * this.limit, this.limit)
-            .pipe(
-                finalize(() => this.loading = false),
-            ).subscribe(
+            .subscribe(
                 response => {
                     this.totalPosts = +response.headers.get('X-Total-Count');
                     this.posts = response.body;
                 },
                 error => {
                     this.messageService.add(`${error.name}: "${error.message}"`);
+                    this.loading = false;
                 }
             );
     }
 
     onPaginationClick(): void {
       this.router.navigateByUrl(`/posts/start/${this.currentPage}/limit/${this.limit}`);
+    }
+
+    finishedLoading(): void {
+        this.loading = false;
     }
 }

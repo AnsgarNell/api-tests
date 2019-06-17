@@ -13,7 +13,7 @@
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let post of posts" app-post-list-detail [post]="post">
+    <tr *ngFor="let post of posts; let l = last" app-post-list-detail [post]="post" [isLast]="l" (finishedLoadingEmitter)="finishedLoading()">
     </tr>
   </tbody>
 </table>
