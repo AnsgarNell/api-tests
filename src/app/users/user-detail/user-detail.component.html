@@ -2,62 +2,63 @@
   <i class="user icon"></i>
   {{user?.username}}
 </h4>
-<div class="ui active inverted dimmer" *ngIf="loading">
-  <div class="ui text loader">Loading</div>
-</div>
 <div class="ui segment">
-  <div class="ui two column very relaxed grid">
-    <div class="column">
-      <table class="ui definition table">
-        <tbody>
-        <tr>
-          <td class="two wide column">Id</td>
-          <td>{{user?.id}}</td>
-        </tr>
-        <tr>
-          <td>Name</td>
-          <td>{{user?.name}}</td>
-        </tr>
-        <tr>
-          <td>Email</td>
-          <td>{{user?.email}}</td>
-        </tr>
-        <tr>
-          <td>Stree</td>
-          <td>{{user?.address.street}}</td>
-        </tr>
-        <tr>
-          <td>Suite</td>
-          <td>{{user?.address.suite}}</td>
-        </tr>
-        <tr>
-          <td>City</td>
-          <td>{{user?.address.city}}</td>
-        </tr>
-        <tr>
-          <td>ZIP Code</td>
-          <td>{{user?.address.zipcode}}</td>
-        </tr>
-        <tr>
-          <td>Company</td>
-          <td>{{user?.company.name}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <agm-map *ngIf="!loading" [latitude]="+user?.address.geo.lat" [longitude]="+user?.address.geo.lng">
-        <agm-marker [latitude]="user?.address.geo.lat" [longitude]="user?.address.geo.lng">
-          <agm-info-window>{{user?.address.city}}</agm-info-window>
-        </agm-marker>
-      </agm-map>
+  <div class="ui active inverted dimmer" *ngIf="loading">
+    <div class="ui text loader">Loading</div>
+  </div>
+  <div class="ui segment">
+    <div class="ui two column very relaxed grid">
+      <div class="column">
+        <table class="ui definition table">
+          <tbody>
+          <tr>
+            <td class="two wide column">Id</td>
+            <td>{{user?.id}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{user?.name}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{user?.email}}</td>
+          </tr>
+          <tr>
+            <td>Stree</td>
+            <td>{{user?.address.street}}</td>
+          </tr>
+          <tr>
+            <td>Suite</td>
+            <td>{{user?.address.suite}}</td>
+          </tr>
+          <tr>
+            <td>City</td>
+            <td>{{user?.address.city}}</td>
+          </tr>
+          <tr>
+            <td>ZIP Code</td>
+            <td>{{user?.address.zipcode}}</td>
+          </tr>
+          <tr>
+            <td>Company</td>
+            <td>{{user?.company.name}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="column">
+        <agm-map *ngIf="!loading" [latitude]="+user?.address.geo.lat" [longitude]="+user?.address.geo.lng">
+          <agm-marker [latitude]="user?.address.geo.lat" [longitude]="user?.address.geo.lng">
+            <agm-info-window>{{user?.address.city}}</agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </div>
     </div>
   </div>
+  <h4 class="ui horizontal divider header"></h4>
+  <h4 class="ui horizontal divider handwritten">
+    {{user?.company.catchPhrase}}
+  </h4>
 </div>
-
-<h4 class="ui horizontal divider header"></h4>
-<h4 class="ui horizontal divider handwritten">
-  {{user?.company.catchPhrase}}
-</h4>
 <!-- Special link because we want a special handwritten font -->
 <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>

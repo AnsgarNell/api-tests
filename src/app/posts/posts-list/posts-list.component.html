@@ -2,29 +2,31 @@
   <i class="comment outline icon"></i>
   Posts
 </h4>
-<div class="ui active inverted dimmer" *ngIf="loading">
-  <div class="ui text loader">Loading</div>
-</div>
-<table class="ui celled table">
-  <thead>
-  <tr>
-    <th>Author/Title</th>
-    <th>Comments</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let post of posts; let l = last" app-post-list-detail [post]="post" [isLast]="l" (finishedLoadingEmitter)="finishedLoading()">
-    </tr>
-  </tbody>
-</table>
 <div class="ui segment">
-<sui-pagination
-                [collectionSize]="totalPosts"
-                [maxSize] = "10"
-                [pageSize]="limit"
-                [hasNavigationLinks]="true"
-                [hasBoundaryLinks]="false"
-                [(page)]="currentPage"
-                (click)="onPaginationClick()">
-</sui-pagination>
+  <div class="ui active inverted dimmer" *ngIf="loading">
+    <div class="ui text loader">Loading</div>
+  </div>
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th>Author/Title</th>
+      <th>Comments</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts; let l = last" app-post-list-detail [post]="post" [isLast]="l" (finishedLoadingEmitter)="finishedLoading()">
+      </tr>
+    </tbody>
+  </table>
+  <div class="ui segment">
+    <sui-pagination
+                    [collectionSize]="totalPosts"
+                    [maxSize] = "10"
+                    [pageSize]="limit"
+                    [hasNavigationLinks]="true"
+                    [hasBoundaryLinks]="false"
+                    [(page)]="currentPage"
+                    (click)="onPaginationClick()">
+    </sui-pagination>
+  </div>
 </div>
