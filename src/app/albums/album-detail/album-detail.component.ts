@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ApiService} from '../../shared/services/api.service';
 import {Album} from '../album-model';
-import {Photo} from '../../photos/photo-model';
+import {Photo} from '../photo-model';
 import {User} from '../../users/user-model';
 import {MessageService} from '../../shared/services/message.service';
 import {finalize} from 'rxjs/operators';

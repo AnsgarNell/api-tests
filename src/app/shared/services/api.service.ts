@@ -5,7 +5,7 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Post} from '../../posts/post-model';
 import {UserComment} from '../../user-comments/user-comments-model';
 import {Album} from '../../albums/album-model';
-import {Photo} from '../../photos/photo-model';
+import {Photo} from '../../albums/photo-model';
 
 const baseUrl = `https://jsonplaceholder.typicode.com/`;
 
